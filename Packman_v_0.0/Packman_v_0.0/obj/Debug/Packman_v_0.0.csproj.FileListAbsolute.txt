@@ -1,0 +1,10 @@
+D:\Работа\Level_Up\Home_work\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.exe.config
+D:\Работа\Level_Up\Home_work\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.exe
+D:\Работа\Level_Up\Home_work\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.pdb
+D:\Работа\Level_Up\Home_work\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.exe
+D:\Работа\Level_Up\Home_work\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.pdb
+D:\Работа\Level_Up\Home_work\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.csprojResolveAssemblyReference.cache
+C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.exe.config
+C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.exe
+C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.pdb
+C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.csprojResolveAssemblyReference.cache
