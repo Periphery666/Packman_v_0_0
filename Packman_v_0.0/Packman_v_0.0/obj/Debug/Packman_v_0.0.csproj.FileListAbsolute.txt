@@ -8,3 +8,9 @@ C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.exe.co
 C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.exe
 C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.pdb
 C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.csprojResolveAssemblyReference.cache
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.exe.config
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.exe
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.pdb
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.exe
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\bin\Debug\Packman_v_0.0.pdb
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\obj\Debug\Packman_v_0.0.csprojResolveAssemblyReference.cache

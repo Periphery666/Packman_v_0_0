@@ -9,18 +9,21 @@ namespace Packman_v_0._0
     struct AI
     {
 
-        public static Prioritet prior = Prioritet.NoDirection;
-
-        private static Random rand = new Random();
 
 
-
+        // Выбор вектора движения
         public static VectorMove Move()
         {
-            return (VectorMove)rand.Next(1, 6);
+            return (VectorMove)Randomaizer.GetRandValue((int)VectorMove.Up, (int)VectorMove.Right);
         }
 
 
+        /// <summary>
+        /// Создания массива движения за игроком
+        /// </summary>
+        /// <param name="vm">ссылка на вектор движения</param>
+        /// <param name="size">количество ходов</param>
+        /// <param name="vector">направление движения</param>
         public static void SetVectorMove(ref VectorMove[] vm, int size, VectorMove vector)
         {
             if (vm == null)
@@ -32,18 +35,141 @@ namespace Packman_v_0._0
         }
 
 
-        public static bool IsFindPlayer(int posX, int posY)
-        {
-            //if (Map.map[posX, posY].statusTile == Status.Player)
-            //{
-            //    return true;
-            //}
 
-            return Map.map[posX, posY].statusTile == Status.Player;
+        /// <summary>
+        ///  проверка на встречу с игроком
+        /// </summary>
+        /// <param name="map"> Карта </param>
+        /// <param name="posX">Позиция Х </param>
+        /// <param name="posY">Позиция У </param>
+        /// <returns></returns>
+        public static bool IsFindPlayer(Map map, int posX, int posY)
+        {
+            return map.map[posX, posY].statusTile == Status.Player;
         }
 
 
-        public static bool FindPlayerVector(ref VectorMove[] vm, int posX, int posY, ref bool find, int limitMax = 6, int level = 1)
+
+        //public static bool FindPlayerVector(Map map, ref VectorMove[] vm, int posX, int posY, ref bool find, int limitMax = 6, int level = 1)
+        //{
+
+        //    if (limitMax < level)
+        //    {
+        //        return false;
+        //    }
+
+
+
+        //    //Up find
+        //    if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
+        //         && !find)
+        //    {
+        //        find = IsFindPlayer(map,posX - 1, posY);
+
+
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Up);
+        //            return find;
+        //        }
+        //        FindPlayerVector(map,ref vm, posX - 1, posY, ref find, limitMax, level + 1);
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Up);
+        //            return find;
+        //        }
+        //    }
+
+
+        //    // left
+        //    if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
+        //        && !find)
+        //    {
+
+        //        find = IsFindPlayer(map,posX, posY - 1);
+
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Left);
+        //            return find;
+        //        }
+
+        //        FindPlayerVector(map,ref vm, posX, posY - 1, ref find, limitMax, level + 1);
+
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Left);
+        //            return find;
+        //        }
+        //    }
+
+
+        //    //Right
+        //    if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
+        //        && !find)
+        //    {
+
+        //        find = IsFindPlayer(map,posX, posY + 1);
+
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Right);
+        //            return find;
+        //        }
+
+        //        FindPlayerVector(map,ref vm, posX, posY + 1, ref find, limitMax, level + 1);
+
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Right);
+        //            return find;
+        //        }
+
+        //    }
+
+
+        //    // down
+        //    if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
+        //        && !find)
+        //    {
+
+        //        find = IsFindPlayer(map,posX + 1, posY);
+
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Down);
+        //            return find;
+        //        }
+
+        //        FindPlayerVector(map,ref vm, posX + 1, posY, ref find, limitMax, level + 1);
+
+        //        if (find)
+        //        {
+        //            SetVectorMove(ref vm, level, VectorMove.Down);
+        //            return find;
+        //        }
+        //    }
+
+        //    return false;
+
+        //}
+
+
+        //
+
+
+        /// <summary>
+        /// Рекурсивный поиск игрока с дальнейшим сохранением вектора движения
+        /// </summary>
+        /// <param name="map">Карта </param>
+        /// <param name="vm">Вектор движения </param>
+        /// <param name="posX">позиция врага X </param>
+        /// <param name="posY">позиция врага Y</param>
+        /// <param name="find">Флаг поиска</param>
+        /// <param name="limitMax">Глубина поиска игрока</param>
+        /// <param name="level">Уровень вхождения рекурсии</param>
+        /// <returns></returns>
+        public static bool FindPlayerVector(Map map, ref VectorMove[] vm, int posX, int posY, ref bool find, int limitMax , int level = 1)
         {
 
             if (limitMax < level)
@@ -54,10 +180,10 @@ namespace Packman_v_0._0
 
 
             //Up find
-            if ((Map.map[posX, posY].statusTile == Status.Food || Map.map[posX, posY].statusTile == Status.NoDirection || Map.map[posX, posY].statusTile == Status.Enemy)
+            if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
                  && !find)
             {
-                find = IsFindPlayer(posX - 1, posY);
+                find = IsFindPlayer(map, posX - 1, posY);
 
 
                 if (find)
@@ -65,7 +191,7 @@ namespace Packman_v_0._0
                     SetVectorMove(ref vm, level, VectorMove.Up);
                     return find;
                 }
-                FindPlayerVector(ref vm, posX - 1, posY, ref find, limitMax, level + 1);
+                FindPlayerVector(map, ref vm, posX - 1, posY, ref find, limitMax, level + 1);
                 if (find)
                 {
                     SetVectorMove(ref vm, level, VectorMove.Up);
@@ -75,11 +201,11 @@ namespace Packman_v_0._0
 
 
             // left
-            if ((Map.map[posX, posY].statusTile == Status.Food || Map.map[posX, posY].statusTile == Status.NoDirection || Map.map[posX, posY].statusTile == Status.Enemy)
-                && find == false)
+            if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
+                && !find)
             {
 
-                find = IsFindPlayer(posX, posY - 1);
+                find = IsFindPlayer(map, posX, posY - 1);
 
                 if (find)
                 {
@@ -87,7 +213,7 @@ namespace Packman_v_0._0
                     return find;
                 }
 
-                FindPlayerVector(ref vm, posX, posY - 1, ref find, limitMax, level + 1);
+                FindPlayerVector(map, ref vm, posX, posY - 1, ref find, limitMax, level + 1);
 
                 if (find)
                 {
@@ -95,15 +221,14 @@ namespace Packman_v_0._0
                     return find;
                 }
             }
-
 
 
             //Right
-            if ((Map.map[posX, posY].statusTile == Status.Food || Map.map[posX, posY].statusTile == Status.NoDirection || Map.map[posX, posY].statusTile == Status.Enemy)
-                && find == false)
+            if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
+                && !find)
             {
 
-                find = IsFindPlayer(posX, posY + 1);
+                find = IsFindPlayer(map, posX, posY + 1);
 
                 if (find)
                 {
@@ -111,7 +236,7 @@ namespace Packman_v_0._0
                     return find;
                 }
 
-                FindPlayerVector(ref vm, posX, posY + 1, ref find, limitMax, level + 1);
+                FindPlayerVector(map, ref vm, posX, posY + 1, ref find, limitMax, level + 1);
 
                 if (find)
                 {
@@ -120,15 +245,14 @@ namespace Packman_v_0._0
                 }
 
             }
-
 
 
             // down
-            if ((Map.map[posX, posY].statusTile == Status.Food || Map.map[posX, posY].statusTile == Status.NoDirection || Map.map[posX, posY].statusTile == Status.Enemy)
-                && find == false)
+            if ((map.map[posX, posY].statusTile == Status.Food || map.map[posX, posY].statusTile == Status.NoDirection || map.map[posX, posY].statusTile == Status.Enemy)
+                && !find)
             {
 
-                find = IsFindPlayer(posX + 1, posY);
+                find = IsFindPlayer(map, posX + 1, posY);
 
                 if (find)
                 {
@@ -136,45 +260,50 @@ namespace Packman_v_0._0
                     return find;
                 }
 
-                FindPlayerVector(ref vm, posX + 1, posY, ref find, limitMax, level + 1);
+                FindPlayerVector(map, ref vm, posX + 1, posY, ref find, limitMax, level + 1);
 
                 if (find)
                 {
                     SetVectorMove(ref vm, level, VectorMove.Down);
                     return find;
                 }
-
             }
-
 
             return false;
 
         }
 
 
-        public static bool FindPlayerSee(ref VectorMove[] vm, Enemy en)
+        /// <summary>
+        /// Поиск игрока в области прямой видимости до преграды
+        /// </summary>
+        /// <param name="map">Карта</param>
+        /// <param name="vm">Ссылка на вестор движения </param>
+        /// <param name="en">Враг который ищет</param>
+        /// <returns></returns>
+        public static bool FindPlayerSee(Map map, ref VectorMove[] vm, Enemy en)
         {
 
             //UP
-            vm = AI.FindVectorMove(VectorMove.Up, en);
+            vm = AI.FindVectorMove(map, VectorMove.Up, en);
             if (vm != null)
             {
                 return true;
             }
             // Down
-            vm = AI.FindVectorMove(VectorMove.Down, en);
+            vm = AI.FindVectorMove(map, VectorMove.Down, en);
             if (vm != null)
             {
                 return true;
             }
             //Left
-            vm = AI.FindVectorMove(VectorMove.Left, en);
+            vm = AI.FindVectorMove(map, VectorMove.Left, en);
             if (vm != null)
             {
                 return true;
             }
             // Right
-            vm = AI.FindVectorMove(VectorMove.Right, en);
+            vm = AI.FindVectorMove(map, VectorMove.Right, en);
             if (vm != null)
             {
                 return true;
@@ -185,7 +314,14 @@ namespace Packman_v_0._0
         }
 
 
-        private static VectorMove[] FindVectorMove(VectorMove vm, Enemy en)
+        /// <summary>
+        /// Работа по поиску в области прямой видимости до преграды
+        /// </summary>
+        /// <param name="map">Карта</param>
+        /// <param name="vm">Ссылка на вестор движения </param>
+        /// <param name="en">Враг который ищет</param>
+        /// <returns></returns>
+        private static VectorMove[] FindVectorMove(Map map, VectorMove vm, Enemy en)
         {
 
             int x = 0;
@@ -217,11 +353,11 @@ namespace Packman_v_0._0
             int moveposX = x;
             int moveposY = y;
 
-            while (Map.map[en.posX + moveposX, en.posY + moveposY].statusTile != Status.Wall)
+            while (map.map[en.posX + moveposX, en.posY + moveposY].statusTile != Status.Wall)
             {
                 ++sizeVm;
 
-                if (Map.map[en.posX + x, en.posY + y].statusTile == Status.Player)
+                if (map.map[en.posX + x, en.posY + y].statusTile == Status.Player)
                 {
                     return AI.SetVectorMove(sizeVm, vm);
 
@@ -234,16 +370,14 @@ namespace Packman_v_0._0
         }
 
 
-        public static void PrioritetVectorMove(Prioritet p)
-        {
-            AI.prior = p;
-        }
-
-
+        /// <summary>
+        /// Установка вектора движения  в области прямой видимости до преграды
+        /// </summary>
+        /// <param name="sizeVm">Количество ходов к игроку</param>
+        /// <param name="vmValue">Направление движения </param>
+        /// <returns></returns>
         private static VectorMove[] SetVectorMove(int sizeVm, VectorMove vmValue)
         {
-
-
 
             VectorMove[] vm = new VectorMove[sizeVm];
             for (int i = 0; i < sizeVm; i++)

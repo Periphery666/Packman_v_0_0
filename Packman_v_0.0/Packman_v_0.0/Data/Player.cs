@@ -8,6 +8,7 @@ namespace Packman_v_0._0
 {
     struct Player
     {
+        // Поля Игрока
         public int level;
         public int posX;
         public int posY;
@@ -21,6 +22,9 @@ namespace Packman_v_0._0
         public MapValue actualMapValue;
         public Status actualStatus;
 
+        /// <summary>
+        /// Инициализация полей для начала игры
+        /// </summary>
         public void InitPlayer()
         {
             vec = VectorMove.NoDirection;

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Packman_v_0._0
 {
-    struct Tile
+    enum BlockValue : int
     {
-        public MapValue mapValue;
-        public Status statusTile;
-        public ConsoleColor cc; 
-
+        MaxSizeBlock = 0x08,
+        CountBlock = 0x3E8
     }
 }

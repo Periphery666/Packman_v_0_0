@@ -12,3 +12,9 @@ C:\Users\artd\Desktop\Packman_v_0.0\Packman_v_0.0\obj\Release\Packman_v_0.0.cspr
 G:\Packman_v_0.0\Packman_v_0.0\bin\Release\Packman_v_0.0.exe.config
 G:\Packman_v_0.0\Packman_v_0.0\obj\Release\Packman_v_0.0.exe
 G:\Packman_v_0.0\Packman_v_0.0\obj\Release\Packman_v_0.0.pdb
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\bin\Release\Packman_v_0.0.exe.config
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\obj\Release\Packman_v_0.0.exe
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\obj\Release\Packman_v_0.0.pdb
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\bin\Release\Packman_v_0.0.exe
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\bin\Release\Packman_v_0.0.pdb
+D:\Packman_v_0_0\Packman_v_0.0\Packman_v_0.0\obj\Release\Packman_v_0.0.csprojResolveAssemblyReference.cache
